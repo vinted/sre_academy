@@ -1,0 +1,6 @@
+# https://docs.rubocop.org/rubocop/cops_style.html
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/SymbolArray:
+  EnforcedStyle: brackets

@@ -1,0 +1,3 @@
+.kitchen/
+.berks_cache/
+Berksfile.lock
