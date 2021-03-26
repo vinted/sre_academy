@@ -1,0 +1,27 @@
+---
+driver:
+  name: vagrant
+  product_name: chef
+
+provisioner:
+  name: chef_zero
+  product_name: chef
+  product_version: 14
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7
+    driver:
+      network:
+        - ["forwarded_port", {guest: 9090, host: 9090}] # Prometheus
+
+suites:
+  - name: default
+    run_list:
+    - recipe[sre_academy::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
