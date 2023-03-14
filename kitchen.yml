@@ -1,21 +1,30 @@
 ---
 driver:
-  name: vagrant
-  product_name: chef
+  name: dokken
+  privileged: true  # because Docker and SystemD
+  chef_image: chef/chef
+  chef_version: 17.10.15
+
+transport:
+  name: dokken
 
 provisioner:
-  name: chef_zero
+  name: dokken
   product_name: chef
-  product_version: 14
+  chef_license: accept-no-persist
+  chef_log_level: info
+  # below forces kitchen test to fail when second converge has changes resources
+  multiple_converge: 2
+  enforce_idempotency: true
 
 verifier:
   name: inspec
 
 platforms:
-  - name: centos-7
+  - name: rockylinux-8
     driver:
-      network:
-        - ["forwarded_port", {guest: 9090, host: 9090}] # Prometheus
+      image: dokken/rockylinux-8
+      pid_one_command: /usr/lib/systemd/systemd
 
 suites:
   - name: default
