@@ -28,6 +28,10 @@ platforms:
 
 suites:
   - name: default
+    driver:
+      ports:
+        - 9090:9090
+        - 3000:3000
     run_list:
     - recipe[sre_academy::default]
     verifier:
