@@ -65,10 +65,9 @@ Use [sous-chefs](https://github.com/sous-chefs) community cookbooks for inspirat
 
 The following tests should pass:
 
-* [x] Test Kitchen (`rake kitchen:test` or `kitchen test`)
+* [x] Test Kitchen (`rake test:kitchen` or `kitchen test`)
 * [x] Cookstyle (`rake test:cookstyle` or `cookstyle .`)
 * [x] MarkdownLint (`rake test:mdl` or `mdl README.md documentation/`)
-* [-] (Optional) ChefSpec (`rake test:chefspec` or `bundle exec rspec`). If you have logic in recipes, you can add ChefSpec tests.
 
 Use `rake test` to run full test suite.
 
